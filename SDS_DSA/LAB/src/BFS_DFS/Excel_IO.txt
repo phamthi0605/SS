@@ -1,0 +1,58 @@
+3			// total number of testcase
+13 12 2		// N,M,C of the 1st test c
+1 6			// Influence information between two cells
+1 9
+7 1
+5 10
+7 5
+11 8
+7 11
+4 7
+3 4
+2 12
+13 2
+4 13
+1			//Initial cell changed
+13			//Initial cell changed
+
+13 12 1		//Beginning of the 2nd test case
+1 6
+1 9
+7 1
+5 10
+7 5
+11 8
+7 11
+4 7
+3 4
+2 12
+13 2
+4 13
+7			//Initial cell changed
+
+13 12 1		//Beginning of the 3nd test case
+1 6
+1 9
+7 1
+5 10
+7 5
+11 8
+7 11
+4 7
+3 4
+2 12
+13 2
+4 13
+4			//Initial cell changed
+
+=> Total number of cells the value of which are changed
+Explanation to the 1st test case
+if you change the value of Cells 1, the values of Cell 6 and Cell 9 will be also changed
+by its influence.
+Plus, if you change the value of Cell 13, the value of Cell 2 is changed, followed by the value of Cell 12
+In other words, the values of Cells 1,6,9,13,2,12 are changed thus the answer is 6.
+
+OUTPUT: 
+#1 6
+#2 8
+#3 12

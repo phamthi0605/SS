@@ -1,0 +1,72 @@
+#input
+5		// Number of test case T=5. 
+4 4		// First test case ( N= 4, M = 4)
+1 3		// A = 1, B = 3. Friend No.1 wants to make a higher sand castle than the sand castle of friends No.3
+3 2		// A = 3, B = 3. Friend No.3 wants to make a higher sand castle than the sand castle of friends No.2
+4 3		// A = 4, B = 3. Friend No.4 wants to make a higher sand castle than the sand castle of friends No.3
+1 4		// A = 1, B = 4. Friend No.1 wants to make a higher sand castle than the sand castle of friends No.4
+ 
+ 1
+ 4 4
+ 1 3
+ 3 2
+ 4 3
+ 1 4
+ 
+ 
+4 5		Second test case ( N= 4, M = 5)
+2 4
+2 3
+3 1
+4 1
+3 4
+
+6 7		3rd test case ( N= 6, M = 7)
+5 1
+6 2
+2 1
+6 5
+1 4
+5 4
+2 3
+
+6 8		4th test case ( N= 6, M =8)
+6 1
+2 1
+1 5
+6 5
+1 4
+1 3
+6 2
+6 4
+5th test case ( N= 6, M =8)
+1
+7 12	
+7 4
+4 6
+1 5
+4 5
+3 6
+1 2
+6 2
+7 2
+1 7
+3 1
+2 5
+1 6
+
+
+# Output
+#1 1 4 2 3
+#2 3 2 1 4 1
+#3 1 2 1 2 1 3
+#4 2 3 1 1 1 4
+#5 6 2 7 4 1 3 5
+
+
+1		
+4 4		
+1 3		
+3 2	
+4 3		
+1 4		

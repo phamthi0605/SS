@@ -1,0 +1,129 @@
+1. Sự khác nhau giữa VARCHAR và NVARCHAR 
+- Varchar lưu trữ các giá trị ASCII và nvarchar lưu các kí tự Unicode
+- Varchar sử dụng 1 byte cho mỗi kí tự trong khi nvarchar sử dụng 2 byte cho mỗi kí tự
+- Varchar [(n)] chứa các ký tự không phải là ký tự Unicode với độ dài thay đổi và Nvarchar [(n)] lưu trữ các ký tự Unicode với chiều dài thay đổi
+- Varchar có thể lưu trữ tối đa 8000 ký tự không phải Unicode và nvarchar lưu trữ tối đa 4000 ký tự Unicode hoặc không phải Unicode
+=> VARCHAR và NVARCHAR giúp lập trình để xác định chuỗi Unicode và không Unicode
+
+2. Phân biệt các loại JOIN
+- select..inner join: ghép các cặp bản ghi thỏa mãn điều kiện
+- select..left join: lấy tất cả phía trái và ghép (nếu có) với phải
+- select..right join: lấy tất cả phía phải và ghép (nếu có) với phía trái
+- select..full join: lấy từ hai phía và ghép nếu có
+- select..cross join: trả về tất cả các cặp có thể ghép
+
+3. Các kiểu dữ liệu trên table
+- Kiểu số liệu: text, binary, numberic, money, datetime, bit, variant
+	+ Giá trị nhị phân: bit
+	+ Các số nguyên: bigint, int, smallint, tinyint
+	+ Các số thực xấp xỉ: float, real
+	+ Giá trị số thực chính xác: decimal, numberic
+	+ Giá trị tiền tệ: money, smallmoney
+	+ Giá trị thời gian: datetime, smalldatetime
+	+ Các chuỗi: char, varchar, text, nchar, nvarchar, ntext,
+	+ Các chuỗi nhị phân: binary, varbinary, image
+	+ Các kiểu khác: cursor, table, variant, timestamp, uniqueidentifier 
+- Các ràng buộc: default, check, unique, foreign, primary
+Ràng buộc cũng được sử dụng để giới hạn loại dữ liệu có thể đi vào bảng( đảm bảo tính chính xác và độ tin cậy dữ liệu)
+	+ check: phải thoả mãn điều kiện nào đó
+	+ default: phải có một giá trị mặc định
+	+ unique: các giá trị trong cột không được trùng lặp
+	+ foreign key: các giá trị phải hợp lệ với cột khoá chính tương ứng
+	+ primary key: phải duy nhất và không trống
+	+ identity: có thể tăng tự động
+	+ not null: không được phép để trống
+	+ CREATE INDEX – Dùng để tạo và lấy dữ liệu từ cơ sở dữ liệu rất nhanh chóng
+- Kiểu toàn vẹn: entity, domain, referential, user
+
+4. Thao tác trên bản ghi( record)
+- insert..values: thêm các bản ghi vào bảng
+- insert..select: thêm các bản ghi từ bảng khác vào bảng
+- select..into: đưa kết quả lựa chọn vào bảng mới
+- delete: xóa các bản ghi từ bảng
+- truncate: xóa toàn bộ bản ghi của bảng
+- update: sửa các bản ghi trong bảng
+
+5. Truy vấn (query)
+- Hỗ trợ truy vấn: distinct, top, as, identity
+	+ Distinct: Danh sách các giá trị không trùng lặp
+	+ Top: Danh sách các giá trị đầu tiên trong table
+	+ As: định danh Alias cho 1 đối tượng cụ thể nào đó (vd: alias cho column name, table,...)
+	+ Identity: có thể tăng tự động
+- Phép toán tập hợp: in, like, between ( kết hợp với mệnh đề WHERE)
+	+ = <>(ko bằng) != > < >= <= !>(ko lớn hơn) !<(không nhỏ hơn)
+	+ In(): tìm giá trị trong danh sách có sẵn
+	+ Like: tìm chuỗi ký tự, thường đi với dấu % và _(% thay thế cho 0 hoặc nhiều kí tự, _: thay thế cho 1 kí tự)
+	+ Between and: Tìm giá trị trong khoảng
+	+ IS NULL: giá trị null
+	+ Is not null: giá trị không null
+	+ NOT: không đáp ứng điều kiện
+	+ Order by: sắp xếp theo thứ tự tăng or giảm dần
+	+ Group by: được sd với mđ select để sắp xếp dữ liệu giống nhau thành các nhóm tuân theo điều kiện WHERE và phải đứng trước order by
+	+ Having: để lọc các nhóm dựa trên danh sách các điều kiện
+- Các hàm tổng nhóm (Group function): sum, max, min, avg
+	+ Count: count(*)| count(column_name): trả về số lượng bản ghi những giá trị null bỏ qua không tính
+	+ AVG:tính trung bình
+	+ SUM: tính tổng
+	+ Min/Max: tìm giá trị nhỏ nhất/ lớn nhất
+	
+	SELECT column_name(s) là câu lệnh chọn các cột
+	FROM table_name là chọn từ bảng chứa các cột cần chọn
+	WHERE condition là điều kiện cho một bản ghi
+	GROUP BY column_name(s) là câu lệnh nhóm các cột có cùng điểm chung
+	HAVING condition là điều kiện cho một nhóm
+	ORDER BY column_name(s) ASC|DESC là sắp xếp theo cột được chỉ định
+
+	
+6. Truy vấn đơn giản
+- select *: Hiện tất cả bảng
+- select: Hiện một số cột
+- select..where: Hiện một số dòng / bản ghi
+- select..order by: Hiện và sắp xếp 
+- select..distinct: Hiện danh sách giá trị không trùng lặp
+- select..top: Hiện các dòng đầu tiên trong bảng
+7. Index
+Câu lệnh CREATE INDEX được sử dụng để tạo chỉ mục trong bảng. 
+Người dùng không thể nhìn thấy các chỉ mục, chúng chỉ được sử dụng để tăng tốc độ tìm kiếm / truy vấn.
+8. Phân biệt foreign key và primary key
+- PRIMARY KEY: 
++ Khoá chính trong một bảng được định nghĩa là các dữ liệu duy nhất( không được trùng lặp).
++ Khoá chính không được phép chứa dữ liệu NULL
++ Một bảng chỉ chứa một khoá chính và trong bảng (khoá chính này có thể bao gồm 1 or nhiều cột)
+=> Cú pháp:
+	CREATE TABLE table_name (
+		column1 datatype PRIMARY KEY,
+		column2 datatype,
+		column3 datatype,
+	   ....
+	);
+	
+	Hoặc: 
+	CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    CONSTRAINT name PRIMARY KEY(column1 ,column2, column3 )
+   ....
+	);
+Ví dụ: 
+	CREATE TABLE ConNguoi (
+		ID int NOT NULL PRIMARY KEY,
+		Ho varchar(25) NOT NULL,
+		Ten varchar(25) NOT NULL,
+		DiaChi nvarchar(255),
+		ThanhPho nvarchar(255),
+	);
+	
+	OR: 
+	CREATE TABLE ConNguoi (
+    ID int NOT NULL,
+    Ho varchar(25) NOT NULL,
+    Ten varchar(25) NOT NULL,
+    DiaChi nvarchar(255),
+    ThanhPho nvarchar(255),
+    CONSTRAINT PK_ConNguoi PRIMARY KEY(ID, Ho)
+	);
+	
+
+- FOREIGN KEY: 
++ 
